@@ -1,10 +1,11 @@
 import { Button, Form } from 'reactstrap';
 
-export default function ResumeForm({}) {
+export default function FormSection({title="Test", status="Edit"}) {
     return(
         <>
         <Form action="">
-             <Button color="primary">Submit</Button>
+             <h2>{title}</h2>
+             <Button color="primary">{status}</Button>
         </Form>
         </>
     )

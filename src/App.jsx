@@ -10,7 +10,12 @@ function App() {
 
   return (
     <>
-      <ResumeForm />
+      <div class="container mx-auto">
+          <h1>CV Application</h1>
+          <ResumeForm title="Personal Info" />
+          <ResumeForm title="Education" />
+          <ResumeForm title="Skillset" />
+      </div>
     </>
   )
 }
