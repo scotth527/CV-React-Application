@@ -12,6 +12,10 @@ export default function FormContainer({title="Test", status="Edit"}) {
         
     }
 
+    function validateFields() {
+        
+    }
+
     return(
         <>
             <FormSection title status />
