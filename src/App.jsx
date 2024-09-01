@@ -6,6 +6,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ResumeForm from './components/form';
 import ResumeContainer from './components/resumeSections/resumeContainer';
 
+const personalInfoFields = [
+  {
+   label:'First Name',
+   type: 'text',
+   fieldName: 'firstName'
+  },
+  { 
+    label: 'Last Name',
+    type:'text',
+    fieldName: 'lastName'
+  },
+  {
+    label: 'Phone',
+    type:'phone',
+    fieldName: 'phone'
+  }, 
+  {
+    label: 'Email',
+    type: 'email',
+    fieldName: 'email'
+  }
+];
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -32,16 +55,24 @@ function App() {
     });
   }
 
+  function clearPersonalInfo() {
+    setPersonalInfo({});
+  }
+
+  function clearEducation() {
+    setEducationInfo([]);
+  }
+
   return (
     <div className='d-flex flex-wrap'>
       <div className="container mx-auto">
           <h1>CV Application</h1>
-          <ResumeForm title="Personal Info" formFieldValues={{personalInfo}} onChange={{setPersonalInfo}} onPersonChange={handlePersonInfoChange} />
-          <ResumeForm title="Education" />
+          <ResumeForm title="Personal Info" formFields={personalInfoFields} formFieldValues={{personalInfo}} onChange={{setPersonalInfo}} onPersonChange={handlePersonInfoChange} clearForm={clearPersonalInfo} />
+          <ResumeForm title="Education" formFieldValues={educationInfo} clearForm={clearEducation} />
           <ResumeForm title="Skillset" />
       </div>
       <div>
-        <ResumeContainer personalInfo={personalInfo} educationInfo={educationInfo} />
+        <ResumeContainer personalInfo={personalInfo} educationInfo={educationInfo}  />
       </div>
     </div>
   )

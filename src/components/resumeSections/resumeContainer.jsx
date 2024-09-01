@@ -1,19 +1,19 @@
 
 
-export default function ResumeContainer({personalInfo}) {
+export default function ResumeContainer({personalInfo, educationInfo}) {
 
 
     return(
-       <div class="p-3">
+       <div className="p-3">
             <section>
                 <h2>Personal Info</h2>
-                <p>{personalInfo.firstName} {personalInfo.lastName} </p>
+                <p>{personalInfo && personalInfo.firstName} {personalInfo.lastName} </p>
                 <p>{personalInfo.email} </p>
                 <p>{personalInfo.phone} </p>
             </section>
             <section>
                 <h2>Education</h2>
-                {education.map((school)=>(
+                {educationInfo.map((school)=>(
                     <div key={school.id}>
                     <h4>{school.name}</h4>
                     <p>{school.degree}</p>

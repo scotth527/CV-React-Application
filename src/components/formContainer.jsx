@@ -2,7 +2,7 @@
 import { Button, Form } from 'reactstrap';
 import { FormSection } from 'form';
 
-export default function FormContainer({title="Test", status="Edit"}) {
+export default function FormContainer({title="Test", status="Edit", clearForm, formFields, formFieldValues, onChange }) {
 
     function submitForm() {
         
@@ -13,12 +13,12 @@ export default function FormContainer({title="Test", status="Edit"}) {
     }
 
     function validateFields() {
-        
+
     }
 
     return(
         <>
-            <FormSection title status />
+            <FormSection title status clearForm formFields formFieldValues onChange />
         </>
     )
 }
