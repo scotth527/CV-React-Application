@@ -1,6 +1,6 @@
 
 
-export default function ResumeContainer({personalInfo, educationInfo}) {
+export default function ResumeContainer({personalInfo, educationInfo, experienceInfo}) {
 
 
     return(
@@ -23,6 +23,15 @@ export default function ResumeContainer({personalInfo, educationInfo}) {
             </section>
             <section>
                 <h2>Experience</h2>
+
+                {experienceInfo.map((experience, index)=>(
+                    <div key={experience.title + '_' + index}>
+                    <h4>{experience.company}</h4>
+                    <p>{experience.title}</p>
+                    <p>{experience.description}</p>
+                    <p>Time worked: {experience.startDate}  - {experience && experience.endDate ? experience.endDate : 'Present'} </p>
+                    </div>
+                ))}
             </section>
        </div>
     )

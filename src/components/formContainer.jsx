@@ -2,7 +2,7 @@
 import { Button, Form } from 'reactstrap';
 import { FormSection } from 'form';
 
-export default function FormContainer({title="Test", status="Edit", clearForm, formFields, formFieldValues, onChange }) {
+export default function FormContainer({title="Test", status="Edit", clearForm, formFields, formFieldValues, onPersonChange=()=>{}, isRepeater, addItemFunc }) {
 
     function submitForm() {
         
@@ -18,7 +18,7 @@ export default function FormContainer({title="Test", status="Edit", clearForm, f
 
     return(
         <>
-            <FormSection title status clearForm formFields formFieldValues onChange />
+            <FormSection title status clearForm formFields formFieldValues onPersonChange isRepeater addItemFunc />
         </>
     )
 }
