@@ -21,10 +21,9 @@ export default function FormSection({title="Test", status="Edit", clearForm, for
                         </div>
                         ))
                 ) : (
-                    <p>No form fields available</p>
+                    <p>No form fields available.</p>
                 ) 
                 }
-
              { isRepeater && <Button onClick={addItemFunc}>Add New</Button> }
              <Button color="primary">{status}</Button>
              <Button className='ml-4' onClick={clearForm}>Clear</Button>
