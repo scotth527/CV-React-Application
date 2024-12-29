@@ -131,12 +131,28 @@ function App() {
     );
   }
 
+  const handleEducationInfoChange = (field, value, fieldGroup) => {
+    setEducationInfo((prevFields) => {
+        return prevFields.map((item, index) => {
+            if (index === fieldGroup) {
+                return {
+                    ...item,
+                    [field]: value, // Update the specific field
+                };
+            }
+            return item; // Leave other items unchanged
+        });
+    });
+  };
+
+
+
   return (
     <div className='d-flex flex-wrap'>
       <div className="container mx-auto">
           <h1>CV Application</h1>
           <ResumeForm title="Personal Info" formFields={personalInfoFields} formFieldValues={personalInfo} onPersonChange={handlePersonInfoChange} clearForm={clearPersonalInfo} />
-          <ResumeForm title="Education" formFields={educationInfoFields} formFieldValues={educationInfo} clearForm={clearEducation} isRepeater={true} addItemFunc={addEducationItem} />
+          <ResumeForm title="Education" formFields={educationInfoFields} formFieldValues={educationInfo} onEducationChange={handleEducationInfoChange} clearForm={clearEducation} isRepeater={true} addItemFunc={addEducationItem} />
           <ResumeForm title="Experience" isRepeater={true}  />
       </div>
       <div>
